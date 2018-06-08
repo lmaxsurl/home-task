@@ -3,4 +3,7 @@
     <string name="top">top</string>
     <string name="bottom">bottom</string>
     <string name="swap">swap</string>
+    <string name="homeTask1">Home task 1</string>
+    <string name="homeTask2">Home task 2</string>
+    <string name="homeTask3">Home task 3</string>
 </resources>
