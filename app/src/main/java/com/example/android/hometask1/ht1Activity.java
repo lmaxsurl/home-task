@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 public class ht1Activity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button button;
     private TextView textView1;
     private TextView textView2;
     private View.OnClickListener clickListener = new View.OnClickListener() {
@@ -30,7 +29,7 @@ public class ht1Activity extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ht1);
-        button = findViewById(R.id.button);
+        Button button = findViewById(R.id.button);
         textView1 = findViewById(R.id.text1);
         textView2 = findViewById(R.id.text2);
         textView1.setOnClickListener(clickListener);

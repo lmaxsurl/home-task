@@ -9,25 +9,28 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private final int READY_TASKS = 1;
-    private final int FIRST_TASK = 0;
-    private Button[] buttons = new Button[READY_TASKS];
+    private Button button1;
+    private Button button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        buttons[FIRST_TASK] = findViewById(R.id.ht1_button);  //ht1 - home task 1
-       /* buttons[1] = findViewById(R.id.ht2_button);
-        buttons[2] = findViewById(R.id.ht3_button);*/
+
+        button1 = findViewById(R.id.ht1_button);
+        button1.setOnClickListener(this);
+
+        button2 = findViewById(R.id.ht2_button);
+        button2.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View view) {
         switch (view){
-            case buttons[FIRST_TASK]: ht1Activity.start(this);
+            case button1: ht1Activity.start(this);  //ht1 - home task 1
                 break;
+            case button2: ht2Activity.start(this);
         }
     }
 }
