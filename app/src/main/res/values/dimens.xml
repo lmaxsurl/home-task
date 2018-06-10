@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="Padding">10dp</dimen>
+    <dimen name="StateTextSize">25sp</dimen>
+    <dimen name="FlagHeight">240dp</dimen>
+    <dimen name="ThirdOfHeight">80dp</dimen>
+    <dimen name="HalfOfHeight">120dp</dimen>
+    <dimen name="FourthOfHeight">60dp</dimen>
+</resources>

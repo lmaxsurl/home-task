@@ -5,4 +5,20 @@
     <color name="colorAccent">#FF4081</color>
     <color name="firstColor">#4DB6AC</color>
     <color name="secondColor">#ff1744</color>
+
+    <color name="ScrollBackground">#E3F2FD</color>
+    <color name="Austria">#dc2006</color>
+    <color name="Poland">#ec180e</color>
+    <color name="ItalyLeft">#068f45</color>
+    <color name="ItalyRight">#d4242e</color>
+    <color name="ColombiaTop">#fcd216</color>
+    <color name="ColombiaMid">#063b95</color>
+    <color name="ColombiaBottom">#cc1426</color>
+    <color name="MadagascarTop">#fc3f35</color>
+    <color name="MadagascarBottom">#067f3d</color>
+    <color name="ThailandTop">#cc1426</color>
+    <color name="ThailandMid">#06049d</color>
+    <color name="Denmark">#d41035</color>
+
+
 </resources>
