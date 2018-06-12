@@ -6,16 +6,13 @@
     android:background="@color/ScrollBackground"
     android:paddingLeft="@dimen/Padding"
     android:paddingRight="@dimen/Padding"
+    android:paddingTop="@dimen/Padding"
     tools:context=".ht2Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <TextView
-            style="@style/StateName"
-            android:text="@string/Austria" />
 
         <LinearLayout
             style="@style/Flag"
@@ -27,10 +24,6 @@
                 android:layout_gravity="center_vertical"
                 android:background="@android:color/white" />
         </LinearLayout>
-
-        <TextView
-            style="@style/StateName"
-            android:text="@string/Poland" />
 
         <LinearLayout
             style="@style/Flag"
@@ -44,10 +37,6 @@
                 android:layout_weight="1"
                 android:background="@color/Poland" />
         </LinearLayout>
-
-        <TextView
-            style="@style/StateName"
-            android:text="@string/Italy" />
 
         <LinearLayout
             style="@style/Flag"
@@ -69,10 +58,6 @@
 
         </LinearLayout>
 
-        <TextView
-            style="@style/StateName"
-            android:text="@string/Colombia" />
-
         <LinearLayout
             style="@style/Flag"
             android:background="@color/ColombiaBottom"
@@ -91,10 +76,6 @@
                 android:layout_weight="1"
                 android:background="@color/ColombiaMid" />
         </LinearLayout>
-
-        <TextView
-            style="@style/StateName"
-            android:text="@string/Madagascar" />
 
         <LinearLayout
             style="@style/Flag"
@@ -123,10 +104,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-        <TextView
-            style="@style/StateName"
-            android:text="@string/Thailand" />
 
         <LinearLayout
             style="@style/Flag"
@@ -159,10 +136,6 @@
                 android:background="@android:color/white" />
 
         </LinearLayout>
-
-        <TextView
-            style="@style/StateName"
-            android:text="@string/Denmark" />
 
         <LinearLayout
             android:layout_width="match_parent"

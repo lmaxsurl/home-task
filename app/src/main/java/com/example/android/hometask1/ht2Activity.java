@@ -8,7 +8,7 @@ import android.os.Bundle;
 public class ht2Activity extends AppCompatActivity {
 
     public static void start(Activity activity){
-        Intent intent = new Intent(activity, ht1Activity.class);
+        Intent intent = new Intent(activity, ht2Activity.class);
         activity.startActivity(intent);
     }
 

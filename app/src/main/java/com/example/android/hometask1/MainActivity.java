@@ -27,10 +27,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view){
-            case button1: ht1Activity.start(this);  //ht1 - home task 1
+        switch (view.getId()){
+            case R.id.ht1_button: ht1Activity.start(this);  //ht1 - home task 1
                 break;
-            case button2: ht2Activity.start(this);
+            case R.id.ht2_button: ht2Activity.start(this);
+                break;
         }
     }
 }
