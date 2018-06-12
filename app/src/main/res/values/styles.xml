@@ -8,4 +8,24 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TaskButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>    
+    
+    <style name="StateName">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/StateTextSize</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Flag">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/FlagHeight</item>
+    </style>
+
+
 </resources>

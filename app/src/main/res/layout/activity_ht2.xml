@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/ScrollBackground"
+    android:paddingLeft="@dimen/Padding"
+    android:paddingRight="@dimen/Padding"
+    tools:context=".ht2Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/StateName"
+            android:text="@string/Austria" />
+
+        <LinearLayout
+            style="@style/Flag"
+            android:background="@color/Austria">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ThirdOfHeight"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/white" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/StateName"
+            android:text="@string/Poland" />
+
+        <LinearLayout
+            style="@style/Flag"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/Poland" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/StateName"
+            android:text="@string/Italy" />
+
+        <LinearLayout
+            style="@style/Flag"
+            android:background="@color/ItalyRight"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/FlagHeight"
+                android:layout_weight="1"
+                android:background="@color/ItalyLeft" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/FlagHeight"
+                android:layout_weight="1"
+                android:background="@android:color/white" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/StateName"
+            android:text="@string/Colombia" />
+
+        <LinearLayout
+            style="@style/Flag"
+            android:background="@color/ColombiaBottom"
+            android:orientation="vertical"
+            android:weightSum="4">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:background="@color/ColombiaTop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/ColombiaMid" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/StateName"
+            android:text="@string/Madagascar" />
+
+        <LinearLayout
+            style="@style/Flag"
+            android:weightSum="3">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/FlagHeight"
+                android:layout_weight="1"
+                android:background="@android:color/white" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/FlagHeight"
+                android:layout_weight="2"
+                android:background="@color/MadagascarBottom"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/MadagascarTop" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/StateName"
+            android:text="@string/Thailand" />
+
+        <LinearLayout
+            style="@style/Flag"
+            android:background="@color/ThailandTop"
+            android:orientation="vertical"
+            android:weightSum="6">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/ThailandTop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:background="@color/ThailandMid" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/white" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/StateName"
+            android:text="@string/Denmark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/FlagHeight"
+            android:background="@color/Denmark"
+            android:orientation="vertical"
+            android:weightSum="7">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:weightSum="10">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/white">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:weightSum="10">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -3,41 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@color/firstColor"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:text="@string/top"
-        android:textSize="32sp" />
-
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@color/secondColor"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:text="@string/bottom"
-        android:textSize="32sp" />
-
-    <Button
-        android:id="@+id/button"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="@string/swap"
-        android:textColor="@android:color/white" />
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/ht1_button"
+            style="@style/TaskButton"
+            android:text="@string/homeTask1" />
+
+        <Button
+            android:id="@+id/ht2_button"
+            style="@style/TaskButton"
+            android:text="@string/homeTask2" />
+
+    </LinearLayout>
 
 </LinearLayout>
