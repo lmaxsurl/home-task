@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">homeTask1</string>
+    <string name="app_name">Home tasks</string>
     <string name="top">top</string>
     <string name="bottom">bottom</string>
     <string name="swap">swap</string>
     <string name="homeTask1">Home task 1</string>
     <string name="homeTask2">Home task 2</string>
     <string name="homeTask3">Home task 3</string>
+    <string name="URL">URL</string>
+    <string name="Download">Download</string>
 </resources>

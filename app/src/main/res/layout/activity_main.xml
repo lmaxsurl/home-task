@@ -20,6 +20,12 @@
             style="@style/TaskButton"
             android:text="@string/homeTask2" />
 
+        <Button
+            android:id="@+id/ht3_button"
+            style="@style/TaskButton"
+            android:text="@string/homeTask3" />
+
+
     </LinearLayout>
 
 </LinearLayout>
