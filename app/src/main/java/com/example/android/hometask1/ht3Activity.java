@@ -37,12 +37,9 @@ public class ht3Activity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Picasso.get().load(editText.getText().toString()).into(imageView);
+                Picasso.get().load(editText.getText().toString()).transform(new CircularTransformation()).into(imageView);
             }
         });
 
     }
-
-
-
 }
