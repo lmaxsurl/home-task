@@ -3,26 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ht3Activity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ht3Activity">
 
     <EditText
         android:id="@+id/ht3_editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/URL"
-        android:inputType="text"/>
+        android:inputType="text" />
 
     <Button
         android:id="@+id/ht3_DownloadButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Download"
-        />
+        android:layout_gravity="center"
+        android:text="@string/Download" />
 
     <ImageView
         android:id="@+id/ht3_imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
