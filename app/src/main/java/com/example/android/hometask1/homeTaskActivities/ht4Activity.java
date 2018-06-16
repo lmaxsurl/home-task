@@ -15,6 +15,7 @@ public class ht4Activity extends AppCompatActivity {
     private AnimationDrawable owlAnimation;
     private ImageView owlImageView;
     private ClockView clockView;
+    private ClockTread clockTread = new ClockTread();
 
     public static void start(Activity activity) {
         Intent intent = new Intent(activity, ht4Activity.class);
@@ -31,16 +32,23 @@ public class ht4Activity extends AppCompatActivity {
         owlAnimation = (AnimationDrawable) owlImageView.getBackground();
         owlAnimation.start();
         clockView = findViewById(R.id.clockView);
-        new clockTread().start();
+        clockTread.start();
     }
 
     @Override
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.alpha, R.anim.compression_with_apha);
+        clockTread.interrupt();
     }
 
-    private class clockTread extends Thread {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        clockTread.interrupt();
+    }
+
+    private class ClockTread extends Thread {
         Runnable clockRunnable = new Runnable() {
             @Override
             public void run() {
@@ -52,9 +60,9 @@ public class ht4Activity extends AppCompatActivity {
         public void run() {
             try {
                 while (true) {
-                    Thread.sleep(1000);
-                    ht4Activity.this.runOnUiThread(clockRunnable);
-                }
+                        Thread.sleep(1000);
+                        ht4Activity.this.runOnUiThread(clockRunnable);
+                    }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
