@@ -129,19 +129,18 @@ public class ClockView extends View {
     private void drawTime(Canvas canvas){
         Date date = Calendar.getInstance().getTime();
         float minuteAngle = 6;
-        float secondAngle = 6;
         canvas.save();
-        canvas.rotate(date.getHours()* hourAngle, getWidth()/2, getHeight()/2);
+        canvas.rotate((date.getHours() *  hourAngle + date.getMinutes()/2), getWidth()/2, getHeight()/2);
         canvas.drawLine(getWidth()/2, getHeight()/2, getWidth()/2, top*2.5f, clockPaint);
         canvas.restore();
 
         canvas.save();
-        canvas.rotate(date.getMinutes()* minuteAngle, getWidth()/2, getHeight()/2);
-        canvas.drawLine(getWidth()/2, getHeight()/2, getWidth()/2, top*2f, clockPaint);
+        canvas.rotate(date.getMinutes()* minuteAngle + date.getSeconds()/10, getWidth()/2, getHeight()/2);
+        canvas.drawLine(getWidth()/2, getHeight()/2, getWidth()/2, top*1.8f, clockPaint);
         canvas.restore();
 
         canvas.save();
-        canvas.rotate(date.getSeconds()* secondAngle, getWidth()/2, getHeight()/2);
+        canvas.rotate(date.getSeconds()* minuteAngle, getWidth()/2, getHeight()/2);
         canvas.drawLine(getWidth()/2, getHeight()/2, getWidth()/2, top*2.1f, secondArrowPaint);
         canvas.restore();
     }
