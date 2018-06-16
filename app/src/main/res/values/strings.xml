@@ -6,6 +6,9 @@
     <string name="homeTask1">Home task 1</string>
     <string name="homeTask2">Home task 2</string>
     <string name="homeTask3">Home task 3</string>
+    <string name="homeTask4">Home task 4</string>
+    <string name="homeTask5">Home task 5</string>
+    <string name="homeTask6">Home task 6</string>
     <string name="URL">URL</string>
     <string name="Download">Download</string>
 </resources>

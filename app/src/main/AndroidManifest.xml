@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.hometask1">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MyApplication"
@@ -22,6 +22,7 @@
         <activity android:name=".ht1Activity" />
         <activity android:name=".ht2Activity" />
         <activity android:name=".ht3Activity" />
+        <activity android:name=".ht4Activity"></activity>
     </application>
 
 </manifest>
