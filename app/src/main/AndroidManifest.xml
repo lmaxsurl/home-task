@@ -19,10 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ht1Activity" />
-        <activity android:name=".ht2Activity" />
-        <activity android:name=".ht3Activity" />
-        <activity android:name=".ht4Activity"></activity>
+        <activity android:name=".homeTaskActivities.ht1Activity" />
+        <activity android:name=".homeTaskActivities.ht2Activity" />
+        <activity android:name=".homeTaskActivities.ht3Activity" />
+        <activity android:name=".homeTaskActivities.ht4Activity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.android.hometask1;
+package com.example.android.hometask1.homeTaskActivities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,8 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.android.hometask1.CircularTransformation;
+import com.example.android.hometask1.R;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Transformation;
 
 public class ht3Activity extends AppCompatActivity {
 

@@ -1,9 +1,11 @@
-package com.example.android.hometask1;
+package com.example.android.hometask1.homeTaskActivities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.android.hometask1.R;
 
 public class ht2Activity extends AppCompatActivity {
 
