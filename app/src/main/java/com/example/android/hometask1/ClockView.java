@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
@@ -13,6 +14,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -127,20 +130,29 @@ public class ClockView extends View {
     }
 
     private void drawTime(Canvas canvas){
-        Date date = Calendar.getInstance().getTime();
-        float minuteAngle = 6;
+        DateFormat hourDateFormat, minuteDateFormat, secondDateFormat;
+        Date date = new Date();
+        hourDateFormat = new SimpleDateFormat("H");
+        minuteDateFormat = new SimpleDateFormat("m");
+        secondDateFormat = new SimpleDateFormat("s");
+
+        int hours = Integer.parseInt(hourDateFormat.format(date));
+        int minutes = Integer.parseInt(minuteDateFormat.format(date));
+        int seconds = Integer.parseInt(secondDateFormat.format(date));
+
+        float minAngle = 6;
         canvas.save();
-        canvas.rotate((date.getHours() *  hourAngle + date.getMinutes()/2), getWidth()/2, getHeight()/2);
+        canvas.rotate((hours * hourAngle + minutes/2), getWidth()/2, getHeight()/2);
         canvas.drawLine(getWidth()/2, getHeight()/2, getWidth()/2, top*2.5f, clockPaint);
         canvas.restore();
 
         canvas.save();
-        canvas.rotate(date.getMinutes()* minuteAngle + date.getSeconds()/10, getWidth()/2, getHeight()/2);
+        canvas.rotate(minutes * minAngle + seconds/10, getWidth()/2, getHeight()/2);
         canvas.drawLine(getWidth()/2, getHeight()/2, getWidth()/2, top*1.8f, clockPaint);
         canvas.restore();
 
         canvas.save();
-        canvas.rotate(date.getSeconds()* minuteAngle, getWidth()/2, getHeight()/2);
+        canvas.rotate(seconds * minAngle, getWidth()/2, getHeight()/2);
         canvas.drawLine(getWidth()/2, getHeight()/2, getWidth()/2, top*2.1f, secondArrowPaint);
         canvas.restore();
     }
