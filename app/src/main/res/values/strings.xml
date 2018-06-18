@@ -11,4 +11,6 @@
     <string name="homeTask6">Home task 6</string>
     <string name="URL">URL</string>
     <string name="Download">Download</string>
+    <string name="ht4EditText">Example: 5,4,3</string>
+    <string name="ht4ShowButton">Show</string>
 </resources>

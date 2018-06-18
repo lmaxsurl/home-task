@@ -69,6 +69,7 @@ public class ClockView extends View {
         numbersPaint = new Paint();
         numbersPaint.setAntiAlias(true);
         numbersPaint.setColor(Color.BLACK);
+        numbersPaint.setTextAlign(Paint.Align.CENTER);
 
         clockBackgroundPaint = new Paint();
         clockBackgroundPaint.setAntiAlias(true);
@@ -78,16 +79,6 @@ public class ClockView extends View {
         secondArrowPaint.setAntiAlias(true);
         secondArrowPaint.setColor(Color.RED);
 
-        left = getWidth()*0.1f;
-        right = getWidth() - left;
-        top = getHeight()*0.1f;
-        bottom = getHeight() - top;
-
-        oval = new RectF();
-        oval.top = top;
-        oval.left = left;
-        oval.right = right;
-        oval.bottom = bottom;
     }
 
     @Override
@@ -117,15 +108,18 @@ public class ClockView extends View {
         clockPaint.setStrokeWidth(top*0.075f);
         numbersPaint.setTextSize(top*0.9f);
         secondArrowPaint.setStrokeWidth(top*0.05f);
+
         canvas.drawCircle(getWidth()/2, getHeight()/2, (right-left)/2, clockBackgroundPaint);
         canvas.drawCircle(getWidth()/2, getHeight()/2, (right-left)/2, clockPaint);
-        canvas.drawText("12",getWidth()/2 - left/2, top*0.75f, numbersPaint);
-        canvas.drawText("3",right + left/4, getHeight()/2 + top/4, numbersPaint);
-        canvas.drawText("6",getWidth()/2 - left/4, getHeight() - top/4, numbersPaint);
-        canvas.drawText("9",left/4, getHeight()/2 + top/4, numbersPaint);
+        canvas.drawText("12",getWidth() * 0.5f, top * 0.75f, numbersPaint);
+        canvas.drawText("3",right + left * 0.5f, (getHeight() + top) * 0.5f, numbersPaint);
+        canvas.drawText("6",getWidth() * 0.5f, getHeight() - top * 0.25f, numbersPaint);
+        canvas.drawText("9",left * 0.5f, (getHeight() + top) * 0.5f, numbersPaint);
+
         for(int i = 0; i < 12; i++){
-            canvas.drawLine(getWidth()/2, top, getWidth()/2, i%3 == 0? top*1.75f : top*1.5f, clockPaint);
-            canvas.rotate(hourAngle, getWidth()/2, getHeight()/2);
+            canvas.drawLine(getWidth() * 0.5f, top,
+                    getWidth() * 0.5f, i%3 == 0? top * 1.75f : top * 1.5f, clockPaint);
+            canvas.rotate(hourAngle, getWidth() * 0.5f, getHeight() * 0.5f);
         }
     }
 
@@ -142,18 +136,23 @@ public class ClockView extends View {
 
         float minAngle = 6;
         canvas.save();
-        canvas.rotate((hours * hourAngle + minutes/2), getWidth()/2, getHeight()/2);
-        canvas.drawLine(getWidth()/2, getHeight()/2, getWidth()/2, top*2.5f, clockPaint);
+        canvas.rotate((hours * hourAngle + minutes * 0.5f),
+                getWidth() * 0.5f, getHeight() * 0.5f);
+        canvas.drawLine(getWidth() * 0.5f, getHeight() * 0.5f,
+                getWidth() * 0.5f, top*2.5f, clockPaint);
         canvas.restore();
 
         canvas.save();
-        canvas.rotate(minutes * minAngle + seconds/10, getWidth()/2, getHeight()/2);
-        canvas.drawLine(getWidth()/2, getHeight()/2, getWidth()/2, top*1.8f, clockPaint);
+        canvas.rotate(minutes * minAngle + seconds * 0.1f,
+                getWidth() * 0.5f, getHeight() * 0.5f);
+        canvas.drawLine(getWidth() * 0.5f, getHeight() * 0.5f,
+                getWidth() * 0.5f, top * 1.8f, clockPaint);
         canvas.restore();
 
         canvas.save();
-        canvas.rotate(seconds * minAngle, getWidth()/2, getHeight()/2);
-        canvas.drawLine(getWidth()/2, getHeight()/2, getWidth()/2, top*2.1f, secondArrowPaint);
+        canvas.rotate(seconds * minAngle, getWidth() * 0.5f, getHeight() * 0.5f);
+        canvas.drawLine(getWidth() * 0.5f, getHeight() * 0.5f,
+                getWidth() * 0.5f, top*2.1f, secondArrowPaint);
         canvas.restore();
     }
 }
