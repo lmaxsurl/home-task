@@ -20,7 +20,7 @@ public class ht4Activity extends AppCompatActivity {
     private AnimationDrawable owlAnimation;
     private ImageView owlImageView;
     private ClockView clockView;
-    private ClockTread clockTread = new ClockTread();
+    private Thread clockTread;
     private float[] numbers;
     private Button addButton;
     private EditText ht4EditText;
@@ -36,7 +36,35 @@ public class ht4Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ht4);
+        initViews();
+        initThread();
+    }
 
+    private void initThread() {
+        final Runnable clockRunnable = new Runnable() {
+            @Override
+            public void run() {
+                clockView.invalidate();
+            }
+        };
+
+        clockTread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    while (true) {
+                        Thread.sleep(1000);
+                        ht4Activity.this.runOnUiThread(clockRunnable);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        clockTread.start();
+    }
+
+    private void initViews() {
         owlImageView = findViewById(R.id.owlImageView);
         owlImageView.setBackgroundResource(R.drawable.owl_animation_list);
         owlAnimation = (AnimationDrawable) owlImageView.getBackground();
@@ -52,12 +80,12 @@ public class ht4Activity extends AppCompatActivity {
                 makeAndSendArr(ht4EditText.getText().toString());
             }
         });
-        clockTread.start();
     }
+
 
     private void makeAndSendArr(String s) {
         String numArr[];
-        if(s.length() > 0) {
+        if (s.length() > 0) {
             numArr = s.split(",");
             numbers = new float[numArr.length];
             for (int i = 0; i < numArr.length; i++) {
@@ -81,26 +109,5 @@ public class ht4Activity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         clockTread.interrupt();
-    }
-
-    private class ClockTread extends Thread {
-        Runnable clockRunnable = new Runnable() {
-            @Override
-            public void run() {
-                clockView.invalidate();
-            }
-        };
-
-        @Override
-        public void run() {
-            try {
-                while (true) {
-                        Thread.sleep(1000);
-                        ht4Activity.this.runOnUiThread(clockRunnable);
-                    }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
     }
 }

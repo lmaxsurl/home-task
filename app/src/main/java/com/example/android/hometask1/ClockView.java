@@ -112,9 +112,9 @@ public class ClockView extends View {
         canvas.drawCircle(getWidth()/2, getHeight()/2, (right-left)/2, clockBackgroundPaint);
         canvas.drawCircle(getWidth()/2, getHeight()/2, (right-left)/2, clockPaint);
         canvas.drawText("12",getWidth() * 0.5f, top * 0.75f, numbersPaint);
-        canvas.drawText("3",right + left * 0.5f, (getHeight() + top) * 0.5f, numbersPaint);
+        canvas.drawText("3",right + left * 0.5f, getHeight()  * 0.5f + top*0.25f, numbersPaint);
         canvas.drawText("6",getWidth() * 0.5f, getHeight() - top * 0.25f, numbersPaint);
-        canvas.drawText("9",left * 0.5f, (getHeight() + top) * 0.5f, numbersPaint);
+        canvas.drawText("9",left * 0.5f, getHeight() * 0.5f + top*0.25f, numbersPaint);
 
         for(int i = 0; i < 12; i++){
             canvas.drawLine(getWidth() * 0.5f, top,
