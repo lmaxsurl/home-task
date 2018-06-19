@@ -9,6 +9,7 @@ import com.example.android.hometask1.homeTaskActivities.ht1Activity;
 import com.example.android.hometask1.homeTaskActivities.ht2Activity;
 import com.example.android.hometask1.homeTaskActivities.ht3Activity;
 import com.example.android.hometask1.homeTaskActivities.ht4Activity;
+import com.example.android.hometask1.homeTaskActivities.ht5Activity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button ht2Button;
     private Button ht3Button;
     private Button ht4Button;
+    private Button ht5Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,19 +35,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ht4Button = findViewById(R.id.ht4_button);
         ht4Button.setOnClickListener(this);
+
+        ht5Button = findViewById(R.id.ht5_button);
+        ht5Button.setOnClickListener(this);
+
     }
 
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.ht1_button: ht1Activity.start(this);  //ht1 - home task 1
+        switch (view.getId()) {
+            case R.id.ht1_button:
+                ht1Activity.start(this);  //ht1 - home task 1
                 break;
-            case R.id.ht2_button: ht2Activity.start(this);
+            case R.id.ht2_button:
+                ht2Activity.start(this);
                 break;
-            case R.id.ht3_button: ht3Activity.start(this);
+            case R.id.ht3_button:
+                ht3Activity.start(this);
                 break;
-            case R.id.ht4_button: ht4Activity.start(this);
+            case R.id.ht4_button:
+                ht4Activity.start(this);
+                break;
+            case R.id.ht5_button:
+                ht5Activity.start(this);
+                break;
         }
     }
 }
