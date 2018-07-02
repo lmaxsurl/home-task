@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    tools:context=".Activities.AddStudentActivity">
+
+    <EditText
+        android:id="@+id/student_url"
+        style="@style/StudentEditText"
+        android:hint="@string/URL"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/student_name"
+        style="@style/StudentEditText"
+        android:hint="@string/name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/student_surname"
+        style="@style/StudentEditText"
+        android:hint="@string/surname"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/student_age"
+        style="@style/StudentEditText"
+        android:hint="@string/age"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/add_student_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/add" />
+
+</LinearLayout>

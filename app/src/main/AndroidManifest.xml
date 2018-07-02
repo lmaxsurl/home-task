@@ -3,8 +3,8 @@
     package="com.example.android.hometask1">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:name=".MyApplication"
@@ -14,20 +14,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".homeTaskActivities.ht1Activity" />
-        <activity android:name=".homeTaskActivities.ht2Activity" />
-        <activity android:name=".homeTaskActivities.ht3Activity" />
-        <activity android:name=".homeTaskActivities.ht4Activity" />
-        <activity android:name=".homeTaskActivities.ht5Activity" />
+        <activity android:name=".Activities.ht1Activity" />
+        <activity android:name=".Activities.ht2Activity" />
+        <activity android:name=".Activities.ht3Activity" />
+        <activity android:name=".Activities.ht4Activity" />
+        <activity android:name=".Activities.ht5Activity" />
 
-        <service android:name=".LocalService"/>
+        <service android:name=".LocalService" />
+
+        <activity android:name=".Activities.ht6Activity" />
+        <activity android:name=".Activities.StudentActivity" />
+        <activity android:name=".Activities.AddStudentActivity" />
     </application>
 
 </manifest>

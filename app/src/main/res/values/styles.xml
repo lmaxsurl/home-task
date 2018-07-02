@@ -21,5 +21,11 @@
         <item name="android:layout_marginBottom">@dimen/Padding</item>
     </style>
 
+    <style name="StudentEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
 
 </resources>

@@ -1,15 +1,11 @@
-package com.example.android.hometask1;
+package com.example.android.hometask1.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.android.hometask1.homeTaskActivities.ht1Activity;
-import com.example.android.hometask1.homeTaskActivities.ht2Activity;
-import com.example.android.hometask1.homeTaskActivities.ht3Activity;
-import com.example.android.hometask1.homeTaskActivities.ht4Activity;
-import com.example.android.hometask1.homeTaskActivities.ht5Activity;
+import com.example.android.hometask1.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -18,12 +14,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button ht3Button;
     private Button ht4Button;
     private Button ht5Button;
+    private Button ht6Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initButtons();
+    }
 
+    private void initButtons(){
         ht1Button = findViewById(R.id.ht1_button);
         ht1Button.setOnClickListener(this);
 
@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ht5Button = findViewById(R.id.ht5_button);
         ht5Button.setOnClickListener(this);
 
+        ht6Button = findViewById(R.id.ht6_button);
+        ht6Button.setOnClickListener(this);
     }
 
 
@@ -59,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.ht5_button:
                 ht5Activity.start(this);
+                break;
+            case R.id.ht6_button:
+                ht6Activity.start(this);
                 break;
         }
     }

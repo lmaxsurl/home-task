@@ -1,4 +1,4 @@
-package com.example.android.hometask1.homeTaskActivities;
+package com.example.android.hometask1.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
