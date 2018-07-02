@@ -51,15 +51,20 @@ public class StudentAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
+    public void setDataList(ArrayList<Student> dataList) {
+        this.dataList = dataList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return dataList == null? 0 : dataList.size();
     }
 
-    public class Holder extends RecyclerView.ViewHolder {
+    private class Holder extends RecyclerView.ViewHolder {
 
-        public TextView nameTextView;
-        public ImageView imageView;
+        private TextView nameTextView;
+        private ImageView imageView;
 
         private Holder(View itemView) {
             super(itemView);

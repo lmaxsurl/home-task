@@ -7,7 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.android.hometask1.R;
@@ -16,12 +19,16 @@ import com.example.android.hometask1.Student;
 import com.example.android.hometask1.StudentAdapter;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnItemClickListener {
 
     private StudentAdapter studentAdapter;
     private RecyclerView recyclerView;
     private FloatingActionButton fab;
+    private EditText findEditText;
 
     public static void start(Activity activity) {
         Intent intent = new Intent(activity, ht6Activity.class);
@@ -32,6 +39,10 @@ public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ht6);
+        init();
+    }
+
+    private void init() {
         createDataList();
         initRecycleView();
         fab = findViewById(R.id.ht6_fab);
@@ -41,6 +52,39 @@ public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnI
                 AddStudentActivity.start(ht6Activity.this);
             }
         });
+        findEditText = findViewById(R.id.ht6_et);
+        findEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                findData();
+            }
+        });
+    }
+
+    private void findData() {
+        ArrayList<Student> list = new ArrayList<>();
+        String key = findEditText.getText().toString().toLowerCase();
+        if(key.equals("")){
+            studentAdapter.setDataList();
+            return;
+        }
+        for(Student student : Singleton.INSTANCE.getStudents()){
+            if (student.getName().toLowerCase().contains(key) || student.getSurname().toLowerCase().contains(key)) {
+                list.add(student);
+            }
+        }
+        Collections.sort(list);
+        studentAdapter.setDataList(list);
     }
 
     private void initRecycleView() {

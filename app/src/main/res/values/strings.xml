@@ -22,4 +22,5 @@
     <string name="add">add</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="find">Find</string>
 </resources>

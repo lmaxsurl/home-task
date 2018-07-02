@@ -1,6 +1,8 @@
 package com.example.android.hometask1;
 
-public class Student {
+import android.support.annotation.NonNull;
+
+public class Student implements Comparable<Student> {
     private String name;
     private String surname;
     private int age;
@@ -43,5 +45,10 @@ public class Student {
 
     public void setURL(String url) {
         this.URL = url;
+    }
+
+    @Override
+    public int compareTo(@NonNull Student student) {
+        return surname.equals(student.surname)? name.compareTo(student.name) : surname.compareTo(student.surname);
     }
 }
