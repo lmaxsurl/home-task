@@ -46,11 +46,6 @@ public class StudentAdapter extends RecyclerView.Adapter {
                 .into(itemHolder.imageView);
     }
 
-    public void setDataList() {
-        dataList = Singleton.INSTANCE.getStudents();
-        notifyDataSetChanged();
-    }
-
     public void setDataList(ArrayList<Student> dataList) {
         this.dataList = dataList;
         notifyDataSetChanged();

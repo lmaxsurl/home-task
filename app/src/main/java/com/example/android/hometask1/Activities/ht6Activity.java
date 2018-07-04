@@ -75,7 +75,7 @@ public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnI
         ArrayList<Student> list = new ArrayList<>();
         String key = findEditText.getText().toString().toLowerCase();
         if(key.equals("")){
-            studentAdapter.setDataList();
+            studentAdapter.setDataList(Singleton.INSTANCE.getStudents());
             return;
         }
         for(Student student : Singleton.INSTANCE.getStudents()){
@@ -94,7 +94,7 @@ public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnI
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(studentAdapter);
         studentAdapter.setOnClickListener(ht6Activity.this);
-        studentAdapter.setDataList();
+        studentAdapter.setDataList(Singleton.INSTANCE.getStudents());
     }
 
     private void createDataList() {
@@ -122,6 +122,6 @@ public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnI
     @Override
     protected void onResume() {
         super.onResume();
-        studentAdapter.setDataList();
+        studentAdapter.setDataList(Singleton.INSTANCE.getStudents());
     }
 }
