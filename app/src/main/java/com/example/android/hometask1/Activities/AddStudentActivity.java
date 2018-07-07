@@ -67,6 +67,4 @@ public class AddStudentActivity extends AppCompatActivity {
                 && ageEditText.getText().toString().length() > 0
                 && urlEditText.getText().toString().length() > 0;
     }
-
-
 }

@@ -43,7 +43,6 @@ public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnI
     }
 
     private void init() {
-        createDataList();
         initRecycleView();
         fab = findViewById(R.id.ht6_fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +68,18 @@ public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnI
                 findData();
             }
         });
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ht6Activity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while(Singleton.INSTANCE.getStudents() == null);
+                        ht6Activity.this.studentAdapter.setDataList(Singleton.INSTANCE.getStudents());
+                    }
+                });
+            }
+        }).start();
     }
 
     private void findData() {
@@ -97,22 +108,6 @@ public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnI
         studentAdapter.setDataList(Singleton.INSTANCE.getStudents());
     }
 
-    private void createDataList() {
-        ArrayList<Student> studentsList = new ArrayList<>();
-        studentsList.add(new Student("Max", "Ivanov", 25,
-                "https://mirpozitiva.ru/uploads/posts/2016-09/1474011210_15.jpg"));
-        studentsList.add(new Student("Jill", "Hummerson", 18,
-                "http://bipbap.ru/wp-content/uploads/2017/05/VOLKI-krasivye-i-ochen-umnye-zhivotnye.jpg"));
-        studentsList.add(new Student("Grew", "Martison", 49,
-                "http://bipbap.ru/wp-content/uploads/2017/10/0_8eb56_842bba74_XL-640x400.jpg"));
-        studentsList.add(new Student("Pavel", "Stepanov", 15,
-                "http://s1.1zoom.me/big0/930/Coast_Sunrises_and_sunsets_Waves_USA_Ocean_Kaneohe_521540_1280x775.jpg"));
-        studentsList.add(new Student("Igor", "Trenkov", 19,
-                "https://pp.userapi.com/c9410/g20099/a_a0f275d0.jpg?ava=1"));
-        studentsList.add(new Student("Sasha", "Stepanov", 30,
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScFORdDaLnx9tMS04LOH-o5YDW9996UMKRaLNYzMkvvDf_drbq"));
-        Singleton.INSTANCE.setStudentsData(studentsList);
-    }
 
     @Override
     public void OnItemClick(int position) {
