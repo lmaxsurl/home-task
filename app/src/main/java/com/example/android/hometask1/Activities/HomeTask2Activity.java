@@ -7,10 +7,10 @@ import android.os.Bundle;
 
 import com.example.android.hometask1.R;
 
-public class ht2Activity extends AppCompatActivity {
+public class HomeTask2Activity extends AppCompatActivity {
 
     public static void start(Activity activity){
-        Intent intent = new Intent(activity, ht2Activity.class);
+        Intent intent = new Intent(activity, HomeTask2Activity.class);
         activity.startActivity(intent);
     }
 

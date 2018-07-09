@@ -41,10 +41,6 @@ public class Singleton {
         return students;
     }
 
-    public void setStudentsData(ArrayList<Student> students) {
-        this.students = students;
-    }
-
     private void downloadStudents() {
         HttpURLConnection connection = null;
         try {

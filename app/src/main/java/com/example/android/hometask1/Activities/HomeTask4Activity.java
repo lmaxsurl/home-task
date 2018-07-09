@@ -15,7 +15,7 @@ import com.example.android.hometask1.ClockView;
 import com.example.android.hometask1.R;
 import com.example.android.hometask1.RoundDiagram;
 
-public class ht4Activity extends AppCompatActivity {
+public class HomeTask4Activity extends AppCompatActivity {
 
     private AnimationDrawable owlAnimation;
     private ImageView owlImageView;
@@ -27,7 +27,7 @@ public class ht4Activity extends AppCompatActivity {
     private RoundDiagram roundDiagram;
 
     public static void start(Activity activity) {
-        Intent intent = new Intent(activity, ht4Activity.class);
+        Intent intent = new Intent(activity, HomeTask4Activity.class);
         activity.startActivity(intent);
         activity.overridePendingTransition(R.anim.alpha, R.anim.extension_with_alpha);
     }
@@ -54,7 +54,7 @@ public class ht4Activity extends AppCompatActivity {
                 try {
                     while (true) {
                         Thread.sleep(1000);
-                        ht4Activity.this.runOnUiThread(clockRunnable);
+                        HomeTask4Activity.this.runOnUiThread(clockRunnable);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();

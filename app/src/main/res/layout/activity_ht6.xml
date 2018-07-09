@@ -6,7 +6,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context=".Activities.ht6Activity">
+    tools:context=".Activities.HomeTask6Activity">
 
     <EditText
         android:id="@+id/ht6_et"

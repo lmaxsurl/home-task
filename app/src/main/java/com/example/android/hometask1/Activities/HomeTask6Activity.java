@@ -11,7 +11,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.android.hometask1.R;
 import com.example.android.hometask1.Singleton;
@@ -19,11 +18,9 @@ import com.example.android.hometask1.Student;
 import com.example.android.hometask1.StudentAdapter;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 
-public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnItemClickListener {
+public class HomeTask6Activity extends AppCompatActivity implements StudentAdapter.OnItemClickListener {
 
     private StudentAdapter studentAdapter;
     private RecyclerView recyclerView;
@@ -31,7 +28,7 @@ public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnI
     private EditText findEditText;
 
     public static void start(Activity activity) {
-        Intent intent = new Intent(activity, ht6Activity.class);
+        Intent intent = new Intent(activity, HomeTask6Activity.class);
         activity.startActivity(intent);
     }
 
@@ -48,7 +45,7 @@ public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnI
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddStudentActivity.start(ht6Activity.this);
+                AddStudentActivity.start(HomeTask6Activity.this);
             }
         });
         findEditText = findViewById(R.id.ht6_et);
@@ -71,11 +68,11 @@ public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnI
         new Thread(new Runnable() {
             @Override
             public void run() {
-                ht6Activity.this.runOnUiThread(new Runnable() {
+                HomeTask6Activity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         while(Singleton.INSTANCE.getStudents() == null);
-                        ht6Activity.this.studentAdapter.setDataList(Singleton.INSTANCE.getStudents());
+                        HomeTask6Activity.this.studentAdapter.setDataList(Singleton.INSTANCE.getStudents());
                     }
                 });
             }
@@ -104,7 +101,7 @@ public class ht6Activity extends AppCompatActivity implements StudentAdapter.OnI
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(studentAdapter);
-        studentAdapter.setOnClickListener(ht6Activity.this);
+        studentAdapter.setOnClickListener(HomeTask6Activity.this);
         studentAdapter.setDataList(Singleton.INSTANCE.getStudents());
     }
 

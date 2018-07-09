@@ -13,7 +13,7 @@ import com.example.android.hometask1.CircularTransformation;
 import com.example.android.hometask1.R;
 import com.squareup.picasso.Picasso;
 
-public class ht3Activity extends AppCompatActivity {
+public class HomeTask3Activity extends AppCompatActivity {
 
     private EditText editText;
     private Button button;
@@ -21,7 +21,7 @@ public class ht3Activity extends AppCompatActivity {
     private String imageURL = "http://bm.img.com.ua/nxs/img/prikol/images/large/1/2/308321_879389.jpg";
 
     public static void start(Activity activity){
-        Intent intent = new Intent(activity, ht3Activity.class);
+        Intent intent = new Intent(activity, HomeTask3Activity.class);
         activity.startActivity(intent);
     }
 

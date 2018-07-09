@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.ht3Activity">
+    tools:context=".Activities.HomeTask3Activity">
 
     <EditText
         android:id="@+id/ht3_editText"

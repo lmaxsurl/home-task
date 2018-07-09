@@ -48,22 +48,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ht1_button:
-                ht1Activity.start(this);  //ht1 - home task 1
+                HomeTask1Activity.start(this);  //ht1 - home task 1
                 break;
             case R.id.ht2_button:
-                ht2Activity.start(this);
+                HomeTask2Activity.start(this);
                 break;
             case R.id.ht3_button:
-                ht3Activity.start(this);
+                HomeTask3Activity.start(this);
                 break;
             case R.id.ht4_button:
-                ht4Activity.start(this);
+                HomeTask4Activity.start(this);
                 break;
             case R.id.ht5_button:
-                ht5Activity.start(this);
+                HomeTask5Activity.start(this);
                 break;
             case R.id.ht6_button:
-                ht6Activity.start(this);
+                HomeTask6Activity.start(this);
                 break;
         }
     }

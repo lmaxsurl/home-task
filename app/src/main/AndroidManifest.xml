@@ -21,15 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.ht1Activity" />
-        <activity android:name=".Activities.ht2Activity" />
-        <activity android:name=".Activities.ht3Activity" />
-        <activity android:name=".Activities.ht4Activity" />
-        <activity android:name=".Activities.ht5Activity" />
+        <activity android:name=".Activities.HomeTask1Activity" />
+        <activity android:name=".Activities.HomeTask2Activity" />
+        <activity android:name=".Activities.HomeTask3Activity" />
+        <activity android:name=".Activities.HomeTask4Activity" />
+        <activity android:name=".Activities.HomeTask5Activity" />
 
         <service android:name=".LocalService" />
 
-        <activity android:name=".Activities.ht6Activity" />
+        <activity android:name=".Activities.HomeTask6Activity" />
         <activity android:name=".Activities.StudentActivity" />
         <activity android:name=".Activities.AddStudentActivity" />
     </application>

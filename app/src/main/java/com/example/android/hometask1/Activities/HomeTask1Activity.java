@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.android.hometask1.R;
 
-public class ht1Activity extends AppCompatActivity implements View.OnClickListener {
+public class HomeTask1Activity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textView1;
     private TextView textView2;
@@ -23,7 +23,7 @@ public class ht1Activity extends AppCompatActivity implements View.OnClickListen
     };
 
     public static void start(Activity activity){
-        Intent intent = new Intent(activity, ht1Activity.class);
+        Intent intent = new Intent(activity, HomeTask1Activity.class);
         activity.startActivity(intent);
     }
 

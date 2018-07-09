@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/Padding"
     android:paddingRight="@dimen/Padding"
     android:paddingTop="@dimen/Padding"
-    tools:context=".Activities.ht2Activity">
+    tools:context=".Activities.HomeTask2Activity">
 
     <LinearLayout
         android:layout_width="match_parent"

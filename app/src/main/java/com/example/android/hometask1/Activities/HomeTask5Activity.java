@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.example.android.hometask1.LocalService;
 import com.example.android.hometask1.R;
 
-public class ht5Activity extends AppCompatActivity {
+public class HomeTask5Activity extends AppCompatActivity {
 
     private Button switchButton;
     private TextView textView;
@@ -26,7 +26,7 @@ public class ht5Activity extends AppCompatActivity {
     private LocalService localService;
 
     public static void start(Activity activity) {
-        Intent intent = new Intent(activity, ht5Activity.class);
+        Intent intent = new Intent(activity, HomeTask5Activity.class);
         activity.startActivity(intent);
     }
 
@@ -81,7 +81,7 @@ public class ht5Activity extends AppCompatActivity {
         switchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                localService.changeWifiState((WifiManager) ht5Activity.this
+                localService.changeWifiState((WifiManager) HomeTask5Activity.this
                         .getApplicationContext().getSystemService(WIFI_SERVICE));
             }
         });
