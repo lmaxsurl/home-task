@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.android.hometask1.Interfaces.IOnItemClickListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -15,13 +16,9 @@ import java.util.ArrayList;
 public class StudentAdapter extends RecyclerView.Adapter {
 
     private ArrayList<Student> dataList;
-    private OnItemClickListener listener;
+    private IOnItemClickListener listener;
 
-    public interface OnItemClickListener {
-        void OnItemClick(int position);
-    }
-
-    public void setOnClickListener(OnItemClickListener listener){
+    public void setOnClickListener(IOnItemClickListener listener){
         this.listener = listener;
     }
 

@@ -19,6 +19,7 @@ import java.util.Arrays;
 public class Singleton {
     public static final Singleton INSTANCE = new Singleton();
     private ArrayList<Student> students;
+    private ArrayList<Student> originalList;
     private String url = "http://kiparo.ru/t/test.json";
     private ArrayList<String> links = new ArrayList<>(
             Arrays.asList("https://mirpozitiva.ru/uploads/posts/2016-09/1474011210_15.jpg",
@@ -63,25 +64,37 @@ public class Singleton {
 
                     JsonObject object = (JsonObject) new JsonParser().parse(sb.toString());
                     JsonArray array = object.getAsJsonArray("people");
-                    students = new ArrayList<>();
+                    ArrayList<Student> list = new ArrayList<>();
                     for (int i = 0; i < array.size(); i++) {
                         JsonObject student = array.get(i).getAsJsonObject();
                         student.remove("id");
                         student.remove("isDegree");
                         student.addProperty("URL", links.get(i));
-                        students.add(new Gson().fromJson(student, Student.class));
+                        list.add(new Gson().fromJson(student, Student.class));
                     }
+                    students = new ArrayList<>(list);
+                    originalList = new ArrayList<>(list);
+                    list.clear();
             }
         } catch (IOException ex) {
-            Log.d("FFF", ex.getMessage());
+            Log.d("connection exception", ex.getMessage());
         } finally {
             if (connection != null) {
                 try {
                     connection.disconnect();
                 } catch (Exception ex) {
-                    Log.d("FFF", ex.getMessage());
+                    Log.d("connection exception", ex.getMessage());
                 }
             }
         }
+    }
+
+    public ArrayList<Student> getOriginalList() {
+        students = originalList;
+        return originalList;
+    }
+
+    public void setStudents(ArrayList<Student> students){
+        this.students = students;
     }
 }

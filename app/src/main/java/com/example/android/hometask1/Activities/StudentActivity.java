@@ -2,31 +2,24 @@ package com.example.android.hometask1.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.support.v7.widget.RecyclerView;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.android.hometask1.CircularTransformation;
+import com.example.android.hometask1.Fragments.InfoFragment;
+import com.example.android.hometask1.Interfaces.IChangeList;
 import com.example.android.hometask1.R;
 import com.example.android.hometask1.Singleton;
 import com.example.android.hometask1.Student;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+public class StudentActivity extends AppCompatActivity implements IChangeList {
 
-public class StudentActivity extends AppCompatActivity {
-
-    private EditText nameEditText;
-    private EditText surnameEditText;
-    private EditText ageEditText;
-    private Button editButton;
-    private Button deleteButton;
-    private ImageView image;
+    private InfoFragment infoFragment;
 
     public static void start(Activity activity, int position) {
         Intent intent = new Intent(activity, StudentActivity.class);
@@ -38,62 +31,45 @@ public class StudentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
-        init();
+        infoFragment = InfoFragment.getInstance(getIntent().getIntExtra("position", RecyclerView.NO_POSITION));
+        showFragment(infoFragment, R.id.student_container);
     }
 
-    private void init() {
-        image = findViewById(R.id.student_image);
-        nameEditText = findViewById(R.id.student_name);
-        surnameEditText = findViewById(R.id.student_surname);
-        ageEditText = findViewById(R.id.student_age);
-        editButton = findViewById(R.id.edit_student_button);
-        deleteButton = findViewById(R.id.delete_student_button);
-
-        final int position = getIntent().getIntExtra("position", -1);
-        if (position == -1)
-            this.finish();
-        final Student student = Singleton.INSTANCE.getStudents().get(position);
-
-        Picasso.get()
-                .load(student.getURL())
-                .resize(512, 512)
-                .centerCrop()
-                .transform(new CircularTransformation())
-                .into(image);
-        nameEditText.setText(student.getName());
-        surnameEditText.setText(student.getSurname());
-        ageEditText.setText("" + student.getAge());
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ArrayList<Student> list = Singleton.INSTANCE.getStudents();
-                if (isFilled()) {
-                    String name = nameEditText.getText().toString();
-                    String surname = surnameEditText.getText().toString();
-                    int age = Integer.parseInt(ageEditText.getText().toString());
-                    student.setName(name);
-                    student.setSurname(surname);
-                    student.setAge(age);
-                    StudentActivity.this.finish();
-                } else
-                    Toast.makeText(StudentActivity.this, "Check the entered data!", Toast.LENGTH_SHORT)
-                            .show();
-            }
-        });
-
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Singleton.INSTANCE.getStudents().remove(position);
-                StudentActivity.this.finish();
-
-            }
-        });
+    private void showFragment(Fragment fragment, int containerId) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(containerId, fragment);
+        transaction.commit();
     }
 
-    private boolean isFilled() {
-        return nameEditText.getText().toString().length() > 0
-                && surnameEditText.getText().toString().length() > 0
-                && ageEditText.getText().toString().length() > 0;
+
+    @Override
+    public void onDeleteListener(int position) {
+        Student removingStudent = Singleton.INSTANCE.getStudents().get(position);
+        int index = Singleton.INSTANCE.getOriginalList().indexOf(removingStudent);
+        Singleton.INSTANCE.getOriginalList().remove(index);
+        finish();
+    }
+
+    @Override
+    public void onAddListener() {
+
+    }
+
+    @Override
+    public void onEditListener(int position) {
+        Student student = Singleton.INSTANCE.getStudents().get(position);
+        EditText nameEditText = infoFragment.getNameEditText(),
+                surnameEditText = infoFragment.getSurnameEditText(),
+                ageEditText = infoFragment.getAgeEditText();
+
+        String name = nameEditText.getText().toString();
+        String surname = surnameEditText.getText().toString();
+        int age = Integer.parseInt(ageEditText.getText().toString());
+
+        student.setName(name);
+        student.setSurname(surname);
+        student.setAge(age);
+        finish();
     }
 }

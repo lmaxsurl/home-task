@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Activities.HomeTask6Activity">
+    android:orientation="vertical">
 
     <EditText
-        android:id="@+id/ht6_et"
+        android:id="@+id/fragment_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:inputType="text"
         android:hint="@string/find" />
 
     <FrameLayout
@@ -20,12 +19,12 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/ht6_rv"
+            android:id="@+id/fragment_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/ht6_fab"
+            android:id="@+id/fragment_fab"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="end|bottom"

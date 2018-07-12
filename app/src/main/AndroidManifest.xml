@@ -29,9 +29,14 @@
 
         <service android:name=".LocalService" />
 
-        <activity android:name=".Activities.HomeTask6Activity" />
+        <activity
+            android:name=".Activities.HomeTask6Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".Activities.StudentActivity" />
         <activity android:name=".Activities.AddStudentActivity" />
+        <activity
+            android:name=".Activities.HomeTask7Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
     </application>
 
 </manifest>

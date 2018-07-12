@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button ht4Button;
     private Button ht5Button;
     private Button ht6Button;
+    private Button ht7Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ht6Button = findViewById(R.id.ht6_button);
         ht6Button.setOnClickListener(this);
+
+        ht7Button = findViewById(R.id.ht7_button);
+        ht7Button.setOnClickListener(this);
     }
 
 
@@ -64,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.ht6_button:
                 HomeTask6Activity.start(this);
+                break;
+            case R.id.ht7_button:
+                HomeTask7Activity.start(this);
                 break;
         }
     }

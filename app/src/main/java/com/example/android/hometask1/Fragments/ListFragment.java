@@ -1,18 +1,23 @@
-package com.example.android.hometask1.Activities;
+package com.example.android.hometask1.Fragments;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.example.android.hometask1.Interfaces.IChangeList;
+import com.example.android.hometask1.Interfaces.IOnAddClickListener;
 import com.example.android.hometask1.Interfaces.IOnItemClickListener;
 import com.example.android.hometask1.R;
 import com.example.android.hometask1.Singleton;
@@ -22,35 +27,39 @@ import com.example.android.hometask1.StudentAdapter;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class HomeTask6Activity extends AppCompatActivity implements IOnItemClickListener {
+public class ListFragment extends Fragment implements IOnItemClickListener {
 
     private StudentAdapter studentAdapter;
     private RecyclerView recyclerView;
     private FloatingActionButton fab;
     private EditText findEditText;
+    private IOnItemClickListener listener;
+    private IOnAddClickListener addListener;
 
-    public static void start(Activity activity) {
-        Intent intent = new Intent(activity, HomeTask6Activity.class);
-        activity.startActivity(intent);
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.list_fragment, container, false);
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ht6);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        fab = view.findViewById(R.id.fragment_fab);
+        findEditText = view.findViewById(R.id.fragment_et);
+        recyclerView = view.findViewById(R.id.fragment_rv);
         init();
     }
 
     private void init() {
         initRecycleView();
-        fab = findViewById(R.id.ht6_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddStudentActivity.start(HomeTask6Activity.this);
+                if(addListener != null)
+                    addListener.onAddClick();
             }
         });
-        findEditText = findViewById(R.id.ht6_et);
         findEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -70,12 +79,13 @@ public class HomeTask6Activity extends AppCompatActivity implements IOnItemClick
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while(Singleton.INSTANCE.getStudents() == null)
+                while (Singleton.INSTANCE.getStudents() == null)
                     Log.d("thread", "wait");
-                HomeTask6Activity.this.runOnUiThread(new Runnable() {
+                if(getActivity() != null)
+                getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        HomeTask6Activity.this.studentAdapter.setDataList(Singleton.INSTANCE.getStudents());
+                        studentAdapter.setDataList(Singleton.INSTANCE.getStudents());
                         Log.d("thread", "add");
                     }
                 });
@@ -86,11 +96,11 @@ public class HomeTask6Activity extends AppCompatActivity implements IOnItemClick
     private void findData() {
         ArrayList<Student> list = new ArrayList<>();
         String key = findEditText.getText().toString().toLowerCase();
-        if(key.equals("")){
+        if (key.equals("")) {
             studentAdapter.setDataList(Singleton.INSTANCE.getOriginalList());
             return;
         }
-        for(Student student : Singleton.INSTANCE.getOriginalList()){
+        for (Student student : Singleton.INSTANCE.getOriginalList()) {
             if (student.getName().toLowerCase().contains(key) || student.getSurname().toLowerCase().contains(key)) {
                 list.add(student);
             }
@@ -102,23 +112,31 @@ public class HomeTask6Activity extends AppCompatActivity implements IOnItemClick
 
     private void initRecycleView() {
         studentAdapter = new StudentAdapter();
-        recyclerView = findViewById(R.id.ht6_rv);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(studentAdapter);
-        studentAdapter.setOnClickListener(HomeTask6Activity.this);
+        studentAdapter.setOnClickListener(this);
         studentAdapter.setDataList(Singleton.INSTANCE.getStudents());
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if(context instanceof IOnItemClickListener)
+            listener = (IOnItemClickListener) context;
+        if(context instanceof IOnAddClickListener)
+            addListener = (IOnAddClickListener) context;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
+        addListener = null;
     }
 
     @Override
     public void OnItemClick(int position) {
-        StudentActivity.start(this, position);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        studentAdapter.setDataList(Singleton.INSTANCE.getStudents());
-        findEditText.setText("");
+        listener.OnItemClick(position);
     }
 }
