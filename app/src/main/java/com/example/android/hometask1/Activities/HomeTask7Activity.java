@@ -27,6 +27,7 @@ public class HomeTask7Activity extends AppCompatActivity implements IOnItemClick
     private ListFragment listFragment;
     private InfoFragment infoFragment;
     private AddFragment addFragment;
+
     public static void start(Activity activity) {
         Intent intent = new Intent(activity, HomeTask7Activity.class);
         activity.startActivity(intent);
@@ -75,15 +76,10 @@ public class HomeTask7Activity extends AppCompatActivity implements IOnItemClick
 
     @Override
     public void onAddListener() {
-        EditText nameEditText = addFragment.getNameEditText(),
-                surnameEditText = addFragment.getSurnameEditText(),
-                ageEditText = addFragment.getAgeEditText(),
-                urlEditText = addFragment.getUrlEditText();
-
-        String url = urlEditText.getText().toString();
-        String name = nameEditText.getText().toString();
-        String surname = surnameEditText.getText().toString();
-        int age = Integer.parseInt(ageEditText.getText().toString());
+        String url = addFragment.getUrlEditText().getText().toString();
+        String name = addFragment.getNameEditText().getText().toString();
+        String surname = addFragment.getSurnameEditText().getText().toString();
+        int age = Integer.parseInt(addFragment.getAgeEditText().getText().toString());
 
         ArrayList<Student> list = Singleton.INSTANCE.getOriginalList();
         if(list != null){
@@ -100,13 +96,9 @@ public class HomeTask7Activity extends AppCompatActivity implements IOnItemClick
     @Override
     public void onEditListener(int position) {
         Student student = Singleton.INSTANCE.getStudents().get(position);
-        EditText nameEditText = infoFragment.getNameEditText(),
-                surnameEditText = infoFragment.getSurnameEditText(),
-                ageEditText = infoFragment.getAgeEditText();
-
-        String name = nameEditText.getText().toString();
-        String surname = surnameEditText.getText().toString();
-        int age = Integer.parseInt(ageEditText.getText().toString());
+        String name = infoFragment.getNameEditText().getText().toString();
+        String surname = infoFragment.getSurnameEditText().getText().toString();
+        int age = Integer.parseInt(infoFragment.getAgeEditText().getText().toString());
 
         student.setName(name);
         student.setSurname(surname);

@@ -37,6 +37,7 @@
         <activity
             android:name=".Activities.HomeTask7Activity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".Activities.HomeTask8Activity"></activity>
     </application>
 
 </manifest>
